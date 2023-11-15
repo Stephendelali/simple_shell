@@ -1,2 +1,1 @@
-# simple_shell
- Creation of  a simple shell 
+Creation of  a simple shell 
