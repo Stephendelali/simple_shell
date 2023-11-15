@@ -1,88 +1,88 @@
 #include "shell.h"
 
 /**
- * _myenv - prints environment
- * @inf: Arguments structure.
- * Return:  0
+ * _myenv -  this  prints the current environ
+ * @info: this struct containing potential arguments.to maintain constant function prototype.
+ * Return: Always 0
  */
-int _myenv(info_t *inf)
+int _myenv(info_t *info)
 {
-	print_list_str(inf->env);
+	print_list_str(info->env);
 	return (0);
 }
 
 /**
  * _getenv - gets the value of an environ variable
- * @inf: Structure containing potential arguments. Used to maintain
+ * @info:  this struct containing potential arguments. 
  * @name: env var name
  *
  * Return: the value
  */
-char *_getenv(info_t *inf, const char *name)
+char *_getenv(info_t *info, const char *name)
 {
-	list_t *node = inf->env;
-	char *l;
+	list_t *node = info->env;
+	char *q;
 
 	while (node)
 	{
-		l = starts_with(node->str, name);
-		if (l && *l)
-			return (l);
+		q = starts_with(node->str, name);
+		if (q && *q)
+			return (q);
 		node = node->next;
 	}
 	return (NULL);
 }
 
 /**
- * _mysetenv - Set up a fresh environment variable.,
- * @inf: Structure containing potential arguments. Used to maintain
- *        constant function prototype.
+ * _mysetenv -  this Initialize a new environment variable,
+ *             or modify an existing one
+ * @info: this struct  containing potential arguments.
  *  Return: Always 0
  */
-int _mysetenv(info_t *inf)
+int _mysetenv(info_t *info)
 {
-	if (inf->argc != 3)
+	if (info->argc != 3)
 	{
 		_eputs("Incorrect number of arguements\n");
 		return (1);
 	}
-	if (_setenv(inf, inf->argv[1], inf->argv[2]))
+	if (_setenv(info, info->argv[1], info->argv[2]))
 		return (0);
 	return (1);
 }
 
 /**
- * _myunsetenvi - Remove an environment variable
- * @inf: for maintenance of constant funtion protocols.
- *  Return: Always 0
+ * _myunsetenv -  this remove an environment variable
+ * @info: this struct containing potential arguments. Used  to maintain function prototype.
+ * Return: Always 0
  */
-int _myunsetenvi(info_t *inf)
+int _myunsetenv(info_t *info)
 {
 	int i;
 
-	if (inf->argc == 1)
+	if (info->argc == 1)
 	{
 		_eputs("Too few arguements.\n");
 		return (1);
 	}
-	for (i = 1; i <= inf->argc; i++)
-		_unsetenv(inf, inf->argv[i]);
+	for (i = 1; i <= info->argc; i++)
+		_unsetenv(info, info->argv[i]);
 
 	return (0);
 }
 
 /**
- * populate_env_list -  used to populate lists
- * @inf: Potential arg. structure.
+ * populate_env_list - populates env linked list
+ * @info: this structure containing potential arguments
  * Return: Always 0
  */
-int populate_env_list(info_t *inf)
+int populate_env_list(info_t *info)
 {
 	list_t *node = NULL;
 	size_t i;
 
 	for (i = 0; environ[i]; i++)
 		add_node_end(&node, environ[i], 0);
-	inf->env = node;
+	info->env = node;
 	return (0);
 }
