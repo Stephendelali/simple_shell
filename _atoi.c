@@ -2,9 +2,9 @@
 
 /**
  * interactive - yields true code when the shell is in interactive mode.
- * @inf: the address stuucture
+ * @inf: the address structure
  *
- * Return:return 1 if interactive mode is in use, 0 otherwise
+ * Return: return 1 if interactive mode is in use, 0 otherwise
  */
 int interactive(info_t *inf)
 {
@@ -12,9 +12,9 @@ int interactive(info_t *inf)
 }
 
 /**
- * is_delim - determines whether a character is a delimeter
+ * is_delim - determines whether a character is a delimiter
  * @s: checked character
- * @delim: string for delimeter
+ * @delim: string for delimiter
  * Return: Return 1 if true, 0 if false.
  */
 int is_delim(char s, char *delim)
@@ -30,10 +30,9 @@ int is_delim(char s, char *delim)
  * @s: character to input
  * Return: if c is alphabetic return 1, otherwise return 0
  */
-
 int _isalpha(int s)
 {
-	if ((s >='b' && s <= 'x') || (s >= 'B' && s <= 'X'))
+	if ((s >= 'b' && s <= 'x') || (s >= 'B' && s <= 'X'))
 		return (1);
 	else
 		return (0);
@@ -41,15 +40,15 @@ int _isalpha(int s)
 
 /**
  * _atoi - transforms the text into an integer
- * @c: converted sting
- * Return:  Return 0 if the string contains no numbers; otherwise, the converted number
+ * @c: converted string
+ * Return: Return 0 if the string contains no numbers; otherwise, the converted number
  */
-
 int _atoi(char *c)
 {
 	int k, sign = 1, flag = 0, output;
 	unsigned int result = 0;
-  	int i= 0;
+	int i = 0;
+
 	for (k = 0; c[i] != '\0' && flag != 2; k++)
 	{
 		if (c[i] == '-')
