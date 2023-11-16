@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * _myenv -  this  prints the current environ
- * @info: this struct containing potential arguments.to maintain constant function prototype.
+ * _myenv -  displays current environ
+ * @info: contains potential arguments
  * Return: Always 0
  */
 int _myenv(info_t *info)
@@ -12,8 +12,8 @@ int _myenv(info_t *info)
 }
 
 /**
- * _getenv - gets the value of an environ variable
- * @info:  this struct containing potential arguments. 
+ * _getenv - gets the value  variable
+ * @info:  this  is for  potential arguments. 
  * @name: env var name
  *
  * Return: the value
@@ -34,8 +34,8 @@ char *_getenv(info_t *info, const char *name)
 }
 
 /**
- * _mysetenv -  this Initialize a new environment variable,
- *             or modify an existing one
+ * _mysetenv -  used to start new  environment variable,
+ *            
  * @info: this struct  containing potential arguments.
  *  Return: Always 0
  */
@@ -52,8 +52,8 @@ int _mysetenv(info_t *info)
 }
 
 /**
- * _myunsetenv -  this remove an environment variable
- * @info: this struct containing potential arguments. Used  to maintain function prototype.
+ * _myunsetenv -  this is to take out  a variable
+ * @info: Used  to maintainence of prototype.
  * Return: Always 0
  */
 int _myunsetenv(info_t *info)
@@ -72,8 +72,8 @@ int _myunsetenv(info_t *info)
 }
 
 /**
- * populate_env_list - populates env linked list
- * @info: this structure containing potential arguments
+ * populate_env_list - populates list
+ * @info: this is for good arguments
  * Return: Always 0
  */
 int populate_env_list(info_t *info)
